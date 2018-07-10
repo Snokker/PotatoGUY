@@ -52,6 +52,7 @@ public class PotatoGuy : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             SchietAnimatie();
+            GameObject bullet = new GameObject();
         }
     }
 
