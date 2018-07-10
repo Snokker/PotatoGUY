@@ -8,6 +8,7 @@ public class PotatoGuy : MonoBehaviour {
     public float speed = 1.5f;
     public Sprite[] array;
     private SpriteRenderer sr;
+    int teller = 0;
 
     // Use this for initialization
     void Start ()
@@ -28,35 +29,49 @@ public class PotatoGuy : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
+            sr.flipX = false;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
+            sr.flipX = true;
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.position += Vector3.up * speed * Time.deltaTime;
+            sr.flipY = false;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.position += Vector3.down * speed * Time.deltaTime;
+            sr.flipY = true;
         }
     }
-
     void Schieten()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Schietanimatie(); 
+            SchietAnimatie();
         }
     }
 
-    void Schietanimatie()
+    void SchietAnimatie()
     {
-        int teller = 0;
-        for (teller; teller < 2; teller++)
+        if (teller < 5)
         {
-            sr.sprite = array[teller];
+            sr.sprite = array[0];
+        }
+        else
+        {
+            sr.sprite = array[1];
+        }
+        teller++;
+
+        if (teller > 10)
+        {
+            teller = 0;
         }
     }
- }
+
+
+}
