@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotatoGuy : MonoBehaviour {
+public class PotatoGuy : MonoBehaviour
+{
 
     //members
     public float speed = 1.5f;
@@ -11,17 +12,17 @@ public class PotatoGuy : MonoBehaviour {
     int teller = 0;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         sr = GetComponent<SpriteRenderer>();
     }
-	
-	// Update is called once per frame
-     void Update ()
-     {
+
+    // Update is called once per frame
+    void Update()
+    {
         Movement();
         Schieten();
-     }
+    }
 
     //beweging voor potatoguy, deze moet nog aangepast worden
     void Movement()
@@ -52,7 +53,6 @@ public class PotatoGuy : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             SchietAnimatie();
-            GameObject bullet = new GameObject();
         }
     }
 
@@ -73,6 +73,4 @@ public class PotatoGuy : MonoBehaviour {
             teller = 0;
         }
     }
-
-
 }
